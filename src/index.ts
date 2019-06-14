@@ -1,8 +1,8 @@
-import dispatchRequest from './core/dispatchRequest'
+import axios from './axios'
 
 
 export * from './types'
 
-export default dispatchRequest
+export default axios
 
 

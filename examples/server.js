@@ -80,9 +80,7 @@ router.get('/extend/user',(req,res)=>{
 router.get('/interceptor/get',(req,res)=>{
   res.json({
     code:0,
-    data:{
-      msg:123
-    }
+    data: 123
   })
 })
 app.use(router)
