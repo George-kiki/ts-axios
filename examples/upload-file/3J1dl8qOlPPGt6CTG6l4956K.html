@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="format-detection" content="telephone=no ">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge ">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>yabo</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    // 事件监听
+    window.onload = () => {
+      document.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault()
+        }
+      }, {
+        passive: false // 关闭被动监听
+      })
+      let lastTouchEnd = 0
+      document.addEventListener('touchend', function (event) {
+        let now = (new Date()).getTime()
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault()
+        }
+        lastTouchEnd = now
+      }, false)
+    }
+  </script>
+</html>
